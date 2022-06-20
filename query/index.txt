@@ -57,4 +57,11 @@ Soluzione:
 
 SELECT COUNT(*) as `department's number`
 FROM `departments`;
+
 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
+
+Soluzione:
+
+SELECT COUNT(*) as `teachers without phone number`
+FROM `teachers`
+WHERE `phone` IS NULL;
