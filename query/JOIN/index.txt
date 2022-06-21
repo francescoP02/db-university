@@ -76,3 +76,16 @@ ORDER BY `teachers`.`name`;
 
 7. BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per
 superare ciascuno dei suoi esami
+
+Soluzione:
+
+SELECT `students`.`name`, `students`.`surname`, `courses`.`name`, `courses`.`cfu`, COUNT(`exam_student`.`vote`) AS `attempts`
+FROM `students`
+INNER JOIN `exam_student` 
+ON `students`.`id` = `student_id`
+INNER JOIN `exams` 
+ON `exams`.`id` = `exam_id`
+INNER JOIN `courses` 
+ON `courses`.`id` = `course_id`
+GROUP BY `students`.`id`, `courses`.`id`
+HAVING `attempts` >= 1;
